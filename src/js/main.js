@@ -266,6 +266,10 @@ var CartogramStarter = (function(){
     };
     
     var parseSvg = function(doc){
+        if (doc === ""){
+            alert("SVG fetch failed! Don't run this via file:// and check existence of svg directory.");
+            return;
+        }
         var root = document.importNode(doc.documentElement, true);        
         $("#originalsvg").append(root);
         nodeObj = createSvgTree(root, null);

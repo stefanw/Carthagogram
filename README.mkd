@@ -1,0 +1,30 @@
+Carthagogram 
+=============
+
+A Cartogram Generator in the browser
+------------------------------------
+
+This is mostly based on Scape Toad (http://scapetoad.choros.ch/) a GPL-licensed Cartogram Generator written in Java.
+
+The algorithm is based on Gastner et al. paper "Diffusion-based method for producing density-equalizing maps".
+
+Carthagogram tries to improve on the following:
+ * web-based: accessible to everyone in an easy way
+ * SVG files as input
+ * area value editor
+    
+Uses Web Workers to perform calculation in background. Calculation takes about 3-5 minutes in Chrome.
+
+Code is a quick-and-dirty translation from Java to JavaScript mainly converting Java classes to JavaScript modules. There are some TODOs in the code in places where original functionality was removed in order to make it work. These places need to be adressed some time.
+
+Note: The (over)use of the module pattern in the code might make it memory intensive because functions are not reused for the same object types.
+
+Currently only SVGs where no path has holes are known to work. Berlin is an example of that. SVGs with paths that have holes go crazy.
+
+The index.html represents an example interface. Due to ajax svg loading it works only when executed on a webserver (like localhost), not via file:///.
+
+build.sh uses sprocketize to insert the separate js modules into one web worker. Web worker have an own dependency API that could be used.
+build.sh also uses closure compiler to make the code smaller and faster.
+
+
+The included image of Cato is from wikimedia http://de.wikipedia.org/w/index.php?title=Datei:Marcus_Porcius_Cato.jpeg and in the public domain.
