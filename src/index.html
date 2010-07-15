@@ -1,0 +1,122 @@
+<!DOCTYPE html> 
+<html dir="ltr" lang="en-US"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+        <title>Carthagogram!</title> 
+       <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+       <script src="js/raphael.js" type="text/javascript" charset="utf-8"></script>
+<!--       <script src="js/carthagogram.js" type="text/javascript" charset="utf-8"></script> -->
+<!--       <script src="lib/canvg/rgbcolor.js" type="text/javascript" charset="utf-8"></script>
+       <script src="lib/canvg/canvg.js" type="text/javascript" charset="utf-8"></script> -->
+       <style type="text/css" media="screen">
+       article, section, aside, progress {
+           display:block;
+       }
+        body {
+            margin:0;
+            background:#bbb;
+            font-family:"Helvetica Neue",Helvetica,"Arial Unicode MS",Arial,sans-serif;
+            color:#333;
+        }
+        #page {
+            margin:2em auto;
+            padding:2em;
+            width:90%;
+            background:#ddd;
+        }
+        #header h1 {
+            margin:0;
+        }
+        #cato q {
+            margin:0.2em 0 2em;
+            font-style:italic;
+            font-size:1.4em;
+            position:relative;
+            top:3em;
+        }
+        
+        #cato q:before { content: "»";}
+        #cato q:after { content: "«";}
+        .section {
+            clear:both;
+        }
+        
+        .node-input {
+
+        }
+        .carthagogram-treechild, .carthagogram-treenode{
+
+        }
+        #svgtree li:nth-child(2n) {
+            background-color:#ccc;
+        }
+       </style>
+    </head> 
+    <body>
+        <article id="page">
+            <aside id="cato" style="width:50em;float:right">
+                <q>Furthermore, I think Cartograms must be created!</q>
+                <img src="img/cato.png" alt="Cato" width="182" height="181" style="float:right;margin:0 5em 0 0;"/>
+            </aside>
+            <header id="header">
+                <h1>Carthagogram</h1>
+            </header>
+            <section style="clear:both" id="section-svg">
+                <form>
+                    <fieldset>
+                        <legend>Original Map</legend>
+                        <label for="svgchooser">Choose SVG file:</label>
+                        <select id="svgchooser" name="svgchooser">
+                            <!-- <option value="">---</option> -->
+                            <!-- <option value="us">US</option>
+                            <option value="uk">UK</option> -->
+                            <!-- <option value="de5">Germany</option> -->
+                            <option value="berlin" selected="selected">Berlin</option>
+                            <!-- <option value="eu">Europe</option> -->
+                        </select>
+                        <!-- <p><label for="svginput">Or paste your own SVG:</label><br/>
+                            <textarea id="svginput"></textarea>
+                        </p> -->
+                        <input type="submit" id="svgnext" value="Next"/>
+                    </fieldset>
+                </form>
+            </section>
+            <section class="section" id="section-values" style="display:none">
+                <div id="originalsvg" style="max-width:60%;float:right"></div>
+                <form>
+                    <fieldset>
+                        <legend>Enter values</legend>
+                        <h3>Map file <em id="svgtitle"></em></h3>
+                        <p>Enter <strong>non-area-normalized</strong> values for the parts (the values will be normalized to their area):</p>
+                        <ul id="svgtree"></ul>
+                    </fieldset>
+                    <!-- <fieldset>
+                        <legend><a href="#advanced">Advanced Settings</a></legend>
+                        <div style="display:none"></div>
+                    </fieldset> -->
+                    <p>The cartogram creation takes a couple of minutes. Your browser will <em>not</em> freeze and will report the progress.</p>
+                    <input type="submit" value="Create Cartogram" id="createnext"/>
+<!--                    <div id="progress-div" style="display:none">
+                        Progress: <p><progress id="progress" max="100" value="0"><span>0</span>%</progress></p>
+                            
+                    </div>-->
+                    <button id="abort-cartogram">Abort cartogram creation</button>
+                </form>
+                <h4>Progress Log</h4>
+                <textarea  rows="10" cols="50" id="logArea"></textarea><br/>
+            </section>
+            <section class="section">
+                <div id="newsvg"></div>
+                <h3>Result SVG:</h3>
+                <textarea cols="50" rows="10" id="newsvgArea"></textarea>
+            </section>
+            <section class="section">
+                <h3>Credits</h3>
+                <p>Algorithm by Gastner et al.</p>
+                <p>Original implementation (Java) by Christian Kaiser for ScapeToad (GPL licensed).</p>
+                <p>Carthagogram is by Stefan Wehrmeyer and also GPL.</p>
+            </section>
+        </article>
+        <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    </body>
+</html>
