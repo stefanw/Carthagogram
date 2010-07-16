@@ -1,10 +1,18 @@
 Carthagogram 
 =============
 
-A Cartogram Generator in the browser
+A JavaScript Cartogram Generator in the browser
 ------------------------------------
 
 This is mostly based on Scape Toad (http://scapetoad.choros.ch/) a GPL-licensed Cartogram Generator written in Java.
+
+Quickstart:
+
+    python run.py
+
+Serves carthagogram on localhost:8000 and opens it in a browser.
+
+
 
 The algorithm is based on Gastner et al. paper "Diffusion-based method for producing density-equalizing maps".
 
