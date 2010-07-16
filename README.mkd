@@ -4,7 +4,7 @@ Carthagogram
 A JavaScript Cartogram Generator in the browser
 ------------------------------------
 
-This is mostly based on Scape Toad (http://scapetoad.choros.ch/) a GPL-licensed Cartogram Generator written in Java.
+This is mostly based on [Scape Toad](http://scapetoad.choros.ch/) a GPL-licensed Cartogram Generator written in Java.
 
 Quickstart:
 
@@ -17,6 +17,7 @@ Serves carthagogram on localhost:8000 and opens it in a browser.
 The algorithm is based on Gastner et al. paper "Diffusion-based method for producing density-equalizing maps".
 
 Carthagogram tries to improve on the following:
+
  * web-based: accessible to everyone in an easy way
  * SVG files as input
  * area value editor
@@ -35,4 +36,4 @@ build.sh uses sprocketize to insert the separate js modules into one web worker.
 build.sh also uses closure compiler to make the code smaller and faster.
 
 
-The included image of Cato is from wikimedia http://de.wikipedia.org/w/index.php?title=Datei:Marcus_Porcius_Cato.jpeg and in the public domain.
+The included image of Cato is from [wikimedia](http://de.wikipedia.org/w/index.php?title=Datei:Marcus_Porcius_Cato.jpeg) and in the public domain.
